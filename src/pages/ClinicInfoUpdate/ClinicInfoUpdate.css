@@ -1,0 +1,72 @@
+.cliUpdateInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.cliUpdateInfoContainer {
+    max-width: 1024px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    background-color: white;
+    top: -60px;
+    border-radius: 24px;
+    box-shadow: 10px 10px 20px 4px rgba(0, 0, 0, 0.2);
+    padding: 24px;
+}
+
+.cliUpdateInfo img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 20px 4px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -50px;
+}
+
+.cliUpdateInfoEditIcon {
+    position: absolute;
+    top: 30px;
+    font-size: 22px;
+    right: 380px;
+    color: #A0A0A0;
+}
+
+.cliUpdateInfo h2 {
+    margin-top: 100px;
+    color: #003580;
+}
+
+.cliUpdateInfoField {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 24px;
+    align-items: center;
+}
+
+.cliUpdateInfoField input {
+    background-color: #D6F0FF;
+}
+
+.cliUpdateInfoField button {
+    width: 100px;
+    height: 28px;
+    border-radius: 4px;
+    border: none;
+    background-color: #2476F0;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 32px;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+.cliUpdateInfoSpace {
+    height: 800px;
+}

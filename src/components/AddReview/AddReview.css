@@ -1,0 +1,52 @@
+.addReview {
+    display: flex;
+    margin: 12px;
+    flex-direction: column;
+    border: 3px solid #FFA800;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.addReview p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.addReview-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+
+}
+
+.addRating-input {
+    margin-top: 12px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+    height: 72px;
+}
+
+.addReview-btn {
+    width: 15%;
+    margin-top: 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #03449F;
+    color: white;
+    height: 28px;
+    font-size: 14px;
+
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.addRating-star {
+    cursor: pointer;
+    transition: color 200ms;
+    font-size: 20px;
+}

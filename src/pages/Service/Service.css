@@ -1,0 +1,49 @@
+.service {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.serviceContainer {
+    max-width: 1024px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: -90px;
+    border-radius: 24px;
+    box-shadow: 10px 10px 20px 4px rgba(0, 0, 0, 0.2);
+    padding: 24px;
+}
+
+.serviceContainer h2 {
+    align-self: flex-start;
+    color: #003580;
+}
+
+.serviceInfo {
+    background-color: #D6F0FF;
+    margin-bottom: 24px;
+    padding: 0 24px 24px 24px;
+    border-radius: 24px;
+    color: #003580;
+    font-weight: bold;
+
+}
+
+.serviceInfo h3 {
+    color: #FFA800;
+}
+
+.serviceDesc {}
+
+.serviceTime {}
+
+.servicePrice {}
+
+.serviceSpace {
+    height: 2900px;
+}

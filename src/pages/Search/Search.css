@@ -1,0 +1,16 @@
+.search {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.searchContainer {
+    max-width: 1024px;
+    width: 100%;
+}
+
+.searchContainer h3 {
+    margin-top: 48px;
+    color: #003580;
+    font-weight: 500;
+}

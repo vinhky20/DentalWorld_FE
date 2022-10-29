@@ -1,0 +1,9 @@
+input[type="radio"] {
+    display: none;
+}
+
+.addRating-star {
+    cursor: pointer;
+    transition: color 200ms;
+    font-size: 20px;
+}

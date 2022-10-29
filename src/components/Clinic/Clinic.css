@@ -1,0 +1,122 @@
+.clinic {
+    width: 1024px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #D6F0FF, #DBEAFF);
+    margin-bottom: 12px;
+}
+
+.clinic-container {
+    border-radius: 20px;
+    width: 100%;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, #D6F0FF, #DBEAFF);
+}
+
+.clinic-info {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.clinic-info-avt {
+    background-color: white;
+    padding: 6px;
+    width: 124px;
+    height: 124px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.clinic-info-avt img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    border: 2px solid #febb02;
+}
+
+.clinic-info-detail {
+    width: 85%;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.clinic-info-name {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+
+
+}
+
+.clinic-info-name p {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: #003580;
+
+}
+
+.clinic-info-address {
+    display: flex;
+    align-items: center;
+    color: #656c77;
+
+}
+
+
+.clinic-info-address p {
+    padding-left: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.clinic-info-phone {
+    display: flex;
+    align-items: center;
+    color: #656c77;
+
+
+}
+
+.clinic-info-phone p {
+    padding-left: 8px;
+}
+
+.clinic-booking-btn {
+    width: 18%;
+    margin-right: 60px;
+    height: 60px;
+    background-color: white;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 10px 10px 20px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #003580;
+}
+
+.clinic-booking-btn p {
+    padding-right: 12px;
+
+}

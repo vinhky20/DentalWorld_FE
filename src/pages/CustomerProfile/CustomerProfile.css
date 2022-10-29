@@ -1,0 +1,53 @@
+.cusProfile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.cusProfileContainer {
+    max-width: 1024px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cusProfile img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 20px 4px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 230px;
+}
+
+.cusProfileEditIcon {
+    position: absolute;
+    top: 310px;
+    font-size: 22px;
+    right: 660px;
+    color: #FFA800;
+}
+
+.cusProfile h2 {
+    margin-top: 90px;
+    color: #003580;
+}
+
+.cusProfileInfo {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #D6F0FF;
+    border-radius: 24px;
+    font-weight: 500;
+}
+
+.cusProfileInfo p {
+    margin-top: 20px;
+    margin-bottom: 24px;
+}

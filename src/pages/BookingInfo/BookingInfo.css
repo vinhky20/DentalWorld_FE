@@ -1,0 +1,73 @@
+.bookingInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.bookingInfoTable {
+    max-width: 1240px;
+    width: 100%;
+
+    position: absolute;
+    background-color: white;
+    top: -80px;
+    border-radius: 24px;
+    box-shadow: 10px 10px 20px 4px rgba(0, 0, 0, 0.2);
+    padding: 24px;
+}
+
+.tableHead {
+    background-color: #003580;
+    color: #FFFFFF;
+    height: 48px;
+}
+
+.bookingInfoTable tr {
+    text-align: center;
+}
+
+th {
+    border-right: 4px solid #FFFFFF;
+}
+
+td {
+    height: 40px;
+    border-right: 4px solid #003580;
+    border-bottom: 4px solid #D9D9D9;
+    text-align: left;
+    padding-left: 8px;
+}
+
+td:last-child {
+    border-right: none;
+}
+
+.BookingInfoSpace {
+    height: 450px;
+}
+
+.iconUpdate {
+    color: #FFA800;
+    font-size: 20px;
+}
+
+.updateStatus {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.updateStatus-yes {
+    background-color: #4ECB71;
+    border: none;
+    border-radius: 2px;
+    height: 24px;
+}
+
+.updateStatus-no {
+    background-color: #FFA800;
+    border: none;
+    border-radius: 2px;
+    height: 24px;
+}

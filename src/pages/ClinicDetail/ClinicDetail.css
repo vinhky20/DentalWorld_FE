@@ -1,0 +1,79 @@
+.clinicDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.clinicDetail>img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 20px 4px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 230px;
+}
+
+.clinicDetailContainer {
+    max-width: 1024px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.clinicDetailInfo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-image: linear-gradient(to right, #D6F0FF, #DBEAFF);
+    border-radius: 20px;
+    padding: 48px 12px 48px 12px;
+}
+
+.clinicInfo h3 {
+    margin-top: 0;
+}
+
+.clinicInfo p {
+    margin: 4px;
+}
+
+.clinicBooking {
+    width: 15%;
+    margin-right: 60px;
+    height: 38px;
+    background-color: #005CDF;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 10px 10px 20px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: white;
+}
+
+.clinicBooking-icon {
+    margin-left: 12px;
+}
+
+.clinicReview {
+    margin-top: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to right, #D6F0FF, #DBEAFF);
+    border-radius: 20px;
+    padding: 0 12px 48px 12px;
+}
+
+.clinicReview p {
+    font-weight: 500;
+    color: #003580;
+    margin-left: 12px;
+    font-size: 18px;
+}

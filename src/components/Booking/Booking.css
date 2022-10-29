@@ -1,0 +1,138 @@
+.booking {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.booking-container {
+    width: 60%;
+    background-color: white;
+    position: relative;
+    padding: 24px 36px 36px 36px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.booking-off-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 12px;
+    padding-top: 12px;
+    color: red;
+}
+
+.booking-container h2 {
+    margin-top: 0;
+    color: #003580;
+}
+
+.booking-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-form-all {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.booking-form-left {
+    margin-right: 24px;
+    width: 50%;
+}
+
+.booking-form-right {
+    width: 50%;
+}
+
+.booking-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.booking-form-label {
+    color: #003580;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.booking-form-service {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 16px 0px 16px 0px;
+}
+
+.booking-form-service-left {}
+
+.booking-form-service-right {}
+
+
+.booking-form-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.checkbox {
+    height: 24px;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+.booking-form-input {
+    outline: none;
+    height: 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #D6F0FF;
+    padding: 8px;
+}
+
+.booking-form-btn {
+    width: 120px;
+    align-self: center;
+    border: none;
+    border-radius: 4px;
+    height: 32px;
+    background-color: #005CDF;
+    font-size: 16px;
+    color: white;
+    margin-top: 12px;
+}
+
+.booking-form-group-btn {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+.booking-form-input-btn {
+    width: 100px;
+    height: 32px;
+    margin-bottom: 12px;
+    border: none;
+    background-color: #B4D3FF;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.timeslot-active {
+    background-color: #003580;
+    color: white;
+}

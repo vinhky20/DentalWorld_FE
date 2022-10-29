@@ -1,0 +1,21 @@
+.input {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-bottom: 12px;
+}
+
+.input-name {
+    color: #003580;
+    font-weight: 500;
+}
+
+.input-field {
+    padding-left: 12px;
+    outline: none;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: #D6F0FF;
+    font-weight: 600;
+}

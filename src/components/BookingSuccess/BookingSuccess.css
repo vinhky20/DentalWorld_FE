@@ -1,0 +1,84 @@
+.booking-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.booking-success-container {
+    background-color: white;
+    position: relative;
+    padding: 24px 72px 24px 72px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.exit-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 12px;
+    padding-top: 12px;
+    color: red;
+}
+
+.booking-success-icon {
+    margin: 12px 0 12px 0;
+    font-size: 100px;
+    color: #4ECB71;
+}
+
+.booking-success-title {
+    color: #4ECB71;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 12px 0 12px 0;
+}
+
+.exit-btn {
+    margin: 24px 0 24px 0;
+    height: 32px;
+    width: 100px;
+    border: none;
+    color: white;
+    background-color: #005CDF;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.infoClinic {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.infoClinic h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: #003580;
+}
+
+.infoBooking {
+    width: 70%;
+}
+
+.infoBooking-th {
+    height: 28px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.infoBooking-td {
+    height: 28px;
+    text-align: right;
+}
