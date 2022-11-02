@@ -161,7 +161,7 @@ function Booking({ clinic, user, handleHideBooking }) {
                             <div className="booking-form-left">
                                 <div className="booking-form-group">
                                     <label className='booking-form-label' htmlFor="clinic-name">Nha khoa</label>
-                                    <input className='booking-form-input' type="text" value={clinic.CLINIC_NAME} />
+                                    <input className='booking-form-input' type="text" value={`Nha khoa ${clinic.CLINIC_NAME}`} />
                                 </div>
                                 <div className="booking-form-group">
                                     <label className='booking-form-label' htmlFor="">Khách hàng</label>

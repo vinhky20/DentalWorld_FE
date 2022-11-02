@@ -82,7 +82,7 @@ function ClinicDetail(props) {
                 <div className="clinicDetailContainer">
                     <div className="clinicDetailInfo">
                         <div className="clinicInfo">
-                            <h3>{clinic.CLINIC_NAME} - {clinic.CLINIC_SLOGAN}</h3>
+                            <h3>Nha khoa {clinic.CLINIC_NAME} - {clinic.CLINIC_SLOGAN}</h3>
                             <p>Địa chỉ: {clinic.CLINIC_ADDRESS}</p>
                             <p>Số điện thoại: {clinic.CLINIC_PHONE}</p>
                             <p>Giờ làm việc: 8h00 - 17h00</p>

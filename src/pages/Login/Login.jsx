@@ -6,22 +6,29 @@ import axios from 'axios';
 import { useContext, useRef } from 'react';
 import { Context } from '../../context/Context';
 import { Link } from 'react-router-dom';
+import Error from '../../components/Error/Error';
 
 function Login({ handleHideLogin }) {
     const userRef = useRef();
     const passwordRef = useRef();
     const [loginRole, setLoginRole] = useState('customer');
 
-    console.log("LOGIN ROLE: ", loginRole)
+    const [isLoading, setIsLoading] = useState(false)
+    const [isError, setIsError] = useState(false)
 
     const handleHide = () => {
         handleHideLogin(false)
+    }
+
+    const handleHideError = () => {
+        setIsError(false)
     }
 
     const { dispatch, isFetching } = useContext(Context);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         dispatch({ type: "LOGIN_START" });
         try {
             if (loginRole === 'customer') {
@@ -40,30 +47,34 @@ function Login({ handleHideLogin }) {
                 handleHide();
             }
 
-        } catch (err) {
+        } catch (error) {
+            setIsError(true);
             dispatch({ type: "LOGIN_FAILURE" });
-
         }
+        setIsLoading(true);
     };
 
     return (
-        <div className='login'>
-            <form className="login-container" onSubmit={handleSubmit}>
-                <FontAwesomeIcon onClick={() => handleHide(false)} className='login-off' icon={faXmark} />
-                <h2>
-                    <p className={loginRole == "customer" ? "loginActive" : "loginNonActive"} onClick={() => setLoginRole('customer')}>KHÁCH HÀNG</p>
-                    |
-                    <p className={loginRole == "clinic" ? "loginActive" : "loginNonActive"} onClick={() => setLoginRole('clinic')}>PHÒNG KHÁM</p>
-                </h2>
-                <p className='loginMessage'>{loginRole == 'customer' ? "Bạn đang đăng nhập với tư cách khách hàng." : "Bạn đang đăng nhập với tư cách phòng khám."}</p>
-                <div className="login-form">
-                    <input ref={userRef} type="text" className="login-input-urn" />
-                    <input ref={passwordRef} type="password" className="login-input-pwd" />
-                </div>
-                <button type='submit' className="login-btn">ĐĂNG NHẬP</button>
-                <p>Chưa có tài khoản? <Link to={loginRole == 'customer' ? '/cusRegister' : '/cliRegister'}>Đăng ký</Link></p>
-            </form>
-        </div >
+        <React.Fragment>
+            {isError && <Error handleHideError={handleHideError} title={'Vui lòng nhập lại mật khẩu, hoặc có thể bạn đã chọn sai vai trò!'} />}
+            <div className='login'>
+                <form className="login-container" onSubmit={handleSubmit}>
+                    <FontAwesomeIcon onClick={() => handleHide(false)} className='login-off' icon={faXmark} />
+                    <h2>
+                        <p className={loginRole == "customer" ? "loginActive" : "loginNonActive"} onClick={() => setLoginRole('customer')}>KHÁCH HÀNG</p>
+                        |
+                        <p className={loginRole == "clinic" ? "loginActive" : "loginNonActive"} onClick={() => setLoginRole('clinic')}>PHÒNG KHÁM</p>
+                    </h2>
+                    <p className='loginMessage'>{loginRole == 'customer' ? "Bạn đang đăng nhập với tư cách khách hàng." : "Bạn đang đăng nhập với tư cách phòng khám."}</p>
+                    <div className="login-form">
+                        <input ref={userRef} type="text" className="login-input-urn" />
+                        <input ref={passwordRef} type="password" className="login-input-pwd" />
+                    </div>
+                    <button type='submit' className="login-btn">ĐĂNG NHẬP</button>
+                    <p>Chưa có tài khoản? <Link to={loginRole == 'customer' ? '/cusRegister' : '/cliRegister'}>Đăng ký</Link></p>
+                </form>
+            </div >
+        </React.Fragment>
     );
 }
 

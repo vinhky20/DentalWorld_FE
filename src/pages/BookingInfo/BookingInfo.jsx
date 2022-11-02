@@ -62,7 +62,7 @@ function BookingInfo(props) {
                     {bookingInfo?.map((b) => (
                         <tr>
                             <td>{b.BOOKING_ID}</td>
-                            <td>{b.CUSTOMER_NAME}</td>
+                            <td>{b.BOOKING_CUSTOMER_NAME || b.CUSTOMER_NAME}</td>
                             <td>{b.BOOKING_CONTACT_PHONE}</td>
                             <td>{b.BOOKING_DATE}</td>
                             <td>{b.TIMESLOT_NAME}</td>

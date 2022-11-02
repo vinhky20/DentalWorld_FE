@@ -38,10 +38,13 @@
       (e.onload = () => {
         window.WebChat.default(
           {
-            initPayload: '/greet',
-            customData: { language: "en" },
+            initPayload: "/greet",
+            customData: { language: "vi" },
+            showMessageDate: true,
+            inputTextFieldHint: "",
+            subtitle: "Rất hân hạnh được hỗ trợ quý khách",
             socketUrl: "http://localhost:5005",
-            title: 'Rasa chatbot',
+            title: 'Trợ lý Thế giới Nha Khoa',
             // add other props here
           },
           null
@@ -49,6 +52,7 @@
       }),
       t.insertBefore(e, t.firstChild);
   })();
+  localStorage.clear();
 </script>
 
 <body>

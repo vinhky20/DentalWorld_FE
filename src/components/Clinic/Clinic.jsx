@@ -52,7 +52,7 @@ function Clinic({ clinic }) {
                         </div>
                         <div className="clinic-info-detail">
                             <div className='clinic-info-name'>
-                                <p>{clinic.CLINIC_NAME}</p>
+                                <p>Nha Khoa {clinic.CLINIC_NAME}</p>
                             </div>
                             <div className='clinic-info-address'>
                                 <FontAwesomeIcon icon={faLocationDot} />

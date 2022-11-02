@@ -32,7 +32,7 @@ function ClinicProfile(props) {
                     <Link className='link' to="/updateCliProfile">
                         <FontAwesomeIcon className='cliProfileEditIcon' icon={faPenToSquare} />
                     </Link>
-                    <h2>{user[0].CLINIC_NAME} - {user[0].CLINIC_SLOGAN}</h2>
+                    <h2>Nha khoa {user[0].CLINIC_NAME} - {user[0].CLINIC_SLOGAN}</h2>
                     <div className="cliProfileInfo">
                         <p>{user[0].CLINIC_ADDRESS}</p>
                         <p>{user[0].CLINIC_PHONE}</p>

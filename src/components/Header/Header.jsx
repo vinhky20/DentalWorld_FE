@@ -38,7 +38,7 @@ function Header() {
                             {
                                 user ? (<div>
                                     <Link className='link user-name' to={user && (user[0].C_role == 'customer' ? '/profileCus' : '/profileCli')}>
-                                        {user[0].C_role == "customer" ? user[0].CUSTOMER_NAME : user[0].CLINIC_NAME}
+                                        {user[0].C_role == "customer" ? user[0].CUSTOMER_NAME : `Nha khoa ${user[0].CLINIC_NAME}`}
                                     </Link>
                                     <button onClick={() => handleLogout()}>
                                         Đăng xuất
