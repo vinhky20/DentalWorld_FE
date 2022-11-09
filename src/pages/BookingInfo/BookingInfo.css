@@ -27,11 +27,11 @@
     text-align: center;
 }
 
-th {
+.bookingInfoTable-th {
     border-right: 4px solid #FFFFFF;
 }
 
-td {
+.bookingInfoTable-td {
     height: 40px;
     border-right: 4px solid #003580;
     border-bottom: 4px solid #D9D9D9;

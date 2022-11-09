@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import BookingSuccess from '../BookingSuccess/BookingSuccess';
+import Error from '../Error/Error';
+import Loading from '../Loading/Loading';
 import './Booking.css';
 
 function Booking({ clinic, user, handleHideBooking }) {
@@ -14,6 +16,10 @@ function Booking({ clinic, user, handleHideBooking }) {
     const [phone, setPhone] = useState("");
     const [note, setNote] = useState("");
     const [service, setService] = useState("");
+
+    const [isError, setIsError] = useState(false)
+    const [isLoading, setIsLoading] = useState(false);
+
 
     const handleHide = () => {
         handleHideBooking(false);
@@ -49,13 +55,19 @@ function Booking({ clinic, user, handleHideBooking }) {
             setBookedTimeSlots(res.data);
         } catch (err) {
             console.log(err)
+            setIsError(true);
         }
 
         // console.log("CLINIC", clinic.CLINIC_ID + " VÀ DATE: " + date)
     }
 
+    const handleHideError = () => {
+        setIsError(false)
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true)
         var checkbox = document.getElementsByName('service');
         var result = "";
         var kkkk = ""
@@ -72,7 +84,9 @@ function Booking({ clinic, user, handleHideBooking }) {
 
         var bookedTimeSlot = ""
 
-        if (timeSlot == "8h00") {
+        if (timeSlot == "Khung giờ đã được đặt trước.") {
+            setIsError(true)
+        } else if (timeSlot == "8h00") {
             bookedTimeSlot = "T1";
         }
         else if (timeSlot == "8h30") {
@@ -141,9 +155,12 @@ function Booking({ clinic, user, handleHideBooking }) {
                 BOOKING_CUSTOMER_MALE: user[0].CUSTOMER_MALE,
                 BOOKING_SERVICE: result
             })
+            setIsLoading(false)
             setOpenBookingStatus(true);
         } catch (err) {
             console.log(err);
+            setIsError(true);
+
         }
 
 
@@ -151,6 +168,8 @@ function Booking({ clinic, user, handleHideBooking }) {
 
     return (
         <React.Fragment>
+            {isLoading && <Loading />}
+            {isError && <Error handleHideError={handleHideError} title={"Có thể bạn đã bỏ trống thông tin cần thiết hoặc chọn nhầm khung giờ đã được đặt trước, vui lòng nhập lại nhé!"} />}
             {openBookingStatus && <BookingSuccess clinic={clinic} date={date} timeSlot={timeSlot} phone={phone} note={note} customer={user[0].CUSTOMER_NAME} title={"Đặt lịch khám thành công"} handleHideBookingSuccess={handleHideBookingSuccess} />}
             <div className='booking'>
                 <div className="booking-container">
@@ -221,7 +240,7 @@ function Booking({ clinic, user, handleHideBooking }) {
                             </div>
                             <div className="booking-form-right">
                                 <div className="booking-form-group">
-                                    <label className='booking-form-label' htmlFor="">Giờ khám</label>
+                                    <label className='booking-form-label' htmlFor="">Giờ khám (Lưu ý: khung giờ được tô màu không còn trống)</label>
                                     <input required className='booking-form-input' type="text" name="" value={timeSlot} onChange={(e) => setTimeSlot(e.target.value)} />
                                 </div>
                                 <div className="booking-form-group-btn">

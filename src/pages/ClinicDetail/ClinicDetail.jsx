@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import './ClinicDetail.css';
-import avt1 from '../../static/pictures/avt1.jpg';
+import avt from '../../static/pictures/avt.jpg';
 import { faCalendarPlus } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Review from '../../components/Review/Review';
@@ -11,7 +11,7 @@ import axios from 'axios';
 import { Context } from '../../context/Context';
 import Login from '../Login/Login';
 import Booking from '../../components/Booking/Booking';
-import Notice from '../../components/Notice/Notice';
+import Warning from '../../components/Warning/Warning';
 import AddReview from '../../components/AddReview/AddReview';
 import Success from '../../components/Success/Success';
 
@@ -22,9 +22,10 @@ function ClinicDetail(props) {
     const { user } = useContext(Context);
     const [openBooking, setOpenBooking] = useState(false);
     const [openLogin, setOpenLogin] = useState(false);
-    const [openNotice, setOpenNotice] = useState(false);
+    const [openWarning, setOpenWarning] = useState(false);
     const [reviews, setReviews] = useState([]);
     const [success, setSuccess] = useState(false);
+    const PF = "http://localhost:5000/public/images/";
 
     const handleSuccessReview = () => {
         setSuccess(true);
@@ -56,15 +57,15 @@ function ClinicDetail(props) {
         setOpenLogin(false)
     }
 
-    const handleHideNotice = () => {
-        setOpenNotice(false);
+    const handleHideWarning = () => {
+        setOpenWarning(false);
     }
 
     const handleOpenBooking = () => {
         if (user && user[0].C_role == 'customer') {
             setOpenBooking(true);
         } else if (user && user[0].C_role == 'clinic') {
-            setOpenNotice(true);
+            setOpenWarning(true);
         } else if (!user) {
             setOpenLogin(true);
         }
@@ -74,11 +75,11 @@ function ClinicDetail(props) {
         <React.Fragment>
             <Header />
             {success && <Success title={"Đánh giá phòng khám thành công!"} handleHideSuccess={handleHideSuccess} />}
-            {openNotice && <Notice handleHideNotice={handleHideNotice} />}
+            {openWarning && <Warning handleHideWarning={handleHideWarning} />}
             {openLogin && <Login handleHideLogin={handleHideLogin} />}
             {openBooking && <Booking clinic={clinic} user={user} handleHideBooking={handleHideBooking} />}
             <div className='clinicDetail'>
-                <img src={avt1} alt="" />
+                <img src={clinic.CLINIC_AVT ? PF + clinic.CLINIC_AVT : avt} alt="" />
                 <div className="clinicDetailContainer">
                     <div className="clinicDetailInfo">
                         <div className="clinicInfo">
@@ -95,7 +96,7 @@ function ClinicDetail(props) {
                     </div>
                     <div className="clinicReview">
                         <p>Phản hồi của khách hàng</p>
-                        {user && (
+                        {(user && user[0].C_ROLE == 'customer') && (
                             <AddReview clinic={clinic.CLINIC_ID} handleSuccessReview={handleSuccessReview} />
                         )}
                         {reviews?.map((review) => (

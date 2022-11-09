@@ -1,19 +1,19 @@
 import { faCircleExclamation, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import './Notice.css';
+import './Warning.css';
 
-function Notice({ handleHideNotice }) {
+function Warning({ handleHideWarning }) {
     const handleHide = () => {
-        handleHideNotice(false);
+        handleHideWarning(false);
 
     }
     return (
-        <div className='notice'>
-            <div className="notice-container">
+        <div className='warning'>
+            <div className="warning-container">
                 <FontAwesomeIcon className="exit-icon" icon={faXmark} onClick={handleHide} ></FontAwesomeIcon>
-                <FontAwesomeIcon className='notice-icon' icon={faCircleExclamation} />
-                <h2 className='notice-title'>Chức năng đặt lịch chỉ dành cho khách hàng!</h2>
+                <FontAwesomeIcon className='warning-icon' icon={faCircleExclamation} />
+                <h2 className='warning-title'>Chức năng đặt lịch chỉ dành cho khách hàng!</h2>
                 <button className='exit-btn' onClick={handleHide}>THOÁT</button>
             </div>
 
@@ -21,4 +21,4 @@ function Notice({ handleHideNotice }) {
     );
 }
 
-export default Notice;
+export default Warning;

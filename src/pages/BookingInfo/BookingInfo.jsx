@@ -2,7 +2,6 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import { Context } from '../../context/Context';
 import './BookingInfo.css';
@@ -50,25 +49,25 @@ function BookingInfo(props) {
             <div className='bookingInfo'>
                 <table className='bookingInfoTable'>
                     <tr className='tableHead'>
-                        <th>STT</th>
-                        <th>Tên khách hàng</th>
-                        <th>Điện thoại</th>
-                        <th>Ngày đặt</th>
-                        <th>Khung giờ</th>
-                        <th>Dịch vụ</th>
-                        <th>Trạng thái</th>
-                        <th>Cập nhật trạng thái</th>
+                        <th className='bookingInfoTable-th'>STT</th>
+                        <th className='bookingInfoTable-th'>Tên khách hàng</th>
+                        <th className='bookingInfoTable-th'>Điện thoại</th>
+                        <th className='bookingInfoTable-th'>Ngày đặt</th>
+                        <th className='bookingInfoTable-th'>Khung giờ</th>
+                        <th className='bookingInfoTable-th'>Dịch vụ</th>
+                        <th className='bookingInfoTable-th'>Trạng thái</th>
+                        <th className='bookingInfoTable-th'>Cập nhật trạng thái</th>
                     </tr>
                     {bookingInfo?.map((b) => (
                         <tr>
-                            <td>{b.BOOKING_ID}</td>
-                            <td>{b.BOOKING_CUSTOMER_NAME || b.CUSTOMER_NAME}</td>
-                            <td>{b.BOOKING_CONTACT_PHONE}</td>
-                            <td>{b.BOOKING_DATE}</td>
-                            <td>{b.TIMESLOT_NAME}</td>
-                            <td>{b.BOOKING_SERVICE}</td>
-                            <td>{b.BOOKING_STATUS == 0 ? "Chưa khám" : "Đã khám"}</td>
-                            <td>{
+                            <td className='bookingInfoTable-td'>{b.BOOKING_ID}</td>
+                            <td className='bookingInfoTable-td'>{b.BOOKING_CUSTOMER_NAME || b.CUSTOMER_NAME}</td>
+                            <td className='bookingInfoTable-td'>{b.BOOKING_CONTACT_PHONE}</td>
+                            <td className='bookingInfoTable-td'>{b.BOOKING_DATE}</td>
+                            <td className='bookingInfoTable-td'>{b.TIMESLOT_NAME}</td>
+                            <td className='bookingInfoTable-td'>{b.BOOKING_SERVICE}</td>
+                            <td className='bookingInfoTable-td'>{b.BOOKING_STATUS == 0 ? "Chưa khám" : "Đã khám"}</td>
+                            <td className='bookingInfoTable-td'>{
                                 updateStatus ? (
                                     <form className="updateStatus" onSubmit={handleUpdateStatus}>
                                         <input type="text" id='bookingId' value={b.BOOKING_ID} hidden />
@@ -83,7 +82,6 @@ function BookingInfo(props) {
                 </table>
             </div>
             <div className="BookingInfoSpace"></div>
-            <Footer />
         </React.Fragment >
 
     );

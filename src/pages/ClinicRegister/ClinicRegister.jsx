@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './ClinicRegister.css';
 import Header from '../../components/Header/Header';
 import SearchFrame from '../../components/SearchFrame/SearchFrame';
@@ -6,6 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import Login from '../Login/Login';
 import Success from '../../components/Success/Success';
 import axios from 'axios';
+import { Context } from '../../context/Context';
 
 function ClinicRegister(props) {
     const [open, setOpen] = useState(false);
@@ -17,6 +18,9 @@ function ClinicRegister(props) {
     const [urn, setUrn] = useState("");
     const [pwd, setPwd] = useState("");
     const [success, setSuccess] = useState(false);
+    const [file, setFile] = useState(null);
+    const { dispatch, isFetching } = useContext(Context);
+
 
     const handleShowLogin = () => {
         setOpen(!open)
@@ -28,19 +32,46 @@ function ClinicRegister(props) {
 
     const handleRegister = async (e) => {
         e.preventDefault();
-        try {
-            const res = await axios.post("/clinics", {
-                CLINIC_NAME: name,
-                CLINIC_SLOGAN: slogan,
-                CLINIC_ADDRESS: address,
-                CLINIC_PHONE: phone,
-                CLINIC_EMAIL: email,
-                CLINIC_URN: urn,
-                CLINIC_PWD: pwd,
-                C_role: "clinic"
-            })
-            setSuccess(true);
 
+        const newClinic = {
+            CLINIC_NAME: name,
+            CLINIC_SLOGAN: slogan,
+            CLINIC_ADDRESS: address,
+            CLINIC_PHONE: phone,
+            CLINIC_EMAIL: email,
+            CLINIC_URN: urn,
+            CLINIC_PWD: pwd,
+            C_role: "clinic"
+        }
+
+        if (file) {
+            const data = new FormData();
+            const filename = Date.now() + file.name;
+            data.append("name", filename);
+            data.append("file", file);
+            newClinic.CLINIC_PHOTO = filename;
+
+            try {
+                await axios.post("/clinics/upload", data)
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        try {
+            const res = await axios.post("/clinics", newClinic)
+            setSuccess(true);
+            dispatch({ type: "LOGIN_START" });
+            try {
+
+                const res = await axios.post("/login/clinic", {
+                    CLINIC_URN: urn,
+                    CLINIC_PWD: pwd
+                })
+                dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+            } catch (error) {
+                dispatch({ type: "LOGIN_FAILURE" });
+            }
         } catch (err) {
             console.log(err)
         }

@@ -36,6 +36,12 @@
 
 .serviceInfo h3 {
     color: #FFA800;
+
+}
+
+.serviceInfo h3::first-letter {
+    text-transform: capitalize;
+
 }
 
 .serviceDesc {}

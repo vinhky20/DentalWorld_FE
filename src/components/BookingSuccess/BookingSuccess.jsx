@@ -15,8 +15,8 @@ function BookingSuccess(props) {
             <div className="booking-success-container">
                 <FontAwesomeIcon className="exit-icon" icon={faXmark} onClick={handleHide} ></FontAwesomeIcon>
                 <div className="infoClinic">
-                    <h3>{props.clinic.CLINIC_NAME}</h3>
-                    <p>Địa chỉ: {props.clinic.CLINIC_ADDRESS}</p>
+                    <h3>Nha khoa {props.clinic.CLINIC_NAME}</h3>
+                    <p><i>Địa chỉ: {props.clinic.CLINIC_ADDRESS}</i> </p>
                 </div>
                 <FontAwesomeIcon className='booking-success-icon' icon={faCircleCheck} />
                 <p className='booking-success-title'>Đặt lịch khám thành công!</p>

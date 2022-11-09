@@ -2,12 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import './ClinicInfoUpdate.css';
-import avt1 from '../../static/pictures/avt1.jpg';
+import avt from '../../static/pictures/avt.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import Input from '../../components/Input/Input';
 import { Context } from '../../context/Context';
 import axios from 'axios';
+import Loading from '../../components/Loading/Loading';
 
 function ClinicInfoUpdate(props) {
     const { user } = useContext(Context);
@@ -17,6 +18,9 @@ function ClinicInfoUpdate(props) {
     const [email, setEmail] = useState("");
     const [address, setAddress] = useState("");
     const [info, setInfo] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
+
+    const PF = "http://localhost:5000/public/images/";
 
     useEffect(() => {
         const getInfo = async () => {
@@ -27,6 +31,7 @@ function ClinicInfoUpdate(props) {
     }, []);
 
     const handleUpdate = async () => {
+        setIsLoading(true);
         try {
             await axios.put("/clinics/" + user[0].CLINIC_ID, {
                 CLINIC_NAME: name,
@@ -37,6 +42,7 @@ function ClinicInfoUpdate(props) {
             });
             // window.location.reload();
             console.log("CẬP NHẬT THÀNH CÔNG HỒ SƠ");
+            setIsLoading(false)
         } catch (err) {
             console.log(err)
         }
@@ -44,10 +50,11 @@ function ClinicInfoUpdate(props) {
 
     return (
         <React.Fragment>
+            {isLoading && <Loading />}
             <Header />
             <div className='cliUpdateInfo'>
                 <div className="cliUpdateInfoContainer">
-                    <img src={avt1} alt="" />
+                    <img src={user[0].CLINIC_AVT ? PF + user[0].CLINIC_AVT : avt} alt="" />
                     <FontAwesomeIcon className='cliUpdateInfoEditIcon' icon={faPenToSquare} />
                     <h2>{info.CLINIC_NAME}  - {info.CLINIC_SLOGAN}</h2>
                     <form className="cliUpdateInfoField" onSubmit={handleUpdate}>

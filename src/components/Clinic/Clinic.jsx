@@ -3,17 +3,18 @@ import { faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext, useState } from 'react';
 import './Clinic.css';
-import avt from '../../static/pictures/avt.jpg';
+import nk from '../../static/pictures/nk.jpg';
 import Booking from '../Booking/Booking';
 import { Context } from '../../context/Context';
 import Login from '../../pages/Login/Login';
 import { Link } from 'react-router-dom';
-import Notice from '../Notice/Notice';
+import Warning from '../Warning/Warning';
 
 function Clinic({ clinic }) {
     const [openBooking, setOpenBooking] = useState(false);
     const [openLogin, setOpenLogin] = useState(false);
-    const [openNotice, setOpenNotice] = useState(false);
+    const [openWarning, setOpenWarning] = useState(false);
+    const PF = "http://localhost:5000/public/images/";
 
     const { user } = useContext(Context);
 
@@ -25,15 +26,15 @@ function Clinic({ clinic }) {
         setOpenLogin(false)
     }
 
-    const handleHideNotice = () => {
-        setOpenNotice(false);
+    const handleHideWarning = () => {
+        setOpenWarning(false);
     }
 
     const handleOpenBooking = () => {
         if (user && user[0].C_role == 'customer') {
             setOpenBooking(true);
         } else if (user && user[0].C_role == 'clinic') {
-            setOpenNotice(true);
+            setOpenWarning(true);
         } else if (!user) {
             setOpenLogin(true);
         }
@@ -41,14 +42,14 @@ function Clinic({ clinic }) {
 
     return (
         <React.Fragment>
-            {openNotice && <Notice handleHideNotice={handleHideNotice} />}
+            {openWarning && <Warning handleHideWarning={handleHideWarning} />}
             {openLogin && <Login handleHideLogin={handleHideLogin} />}
             {openBooking && <Booking clinic={clinic} user={user} handleHideBooking={handleHideBooking} />}
             <div className='clinic'>
                 <div className="clinic-container">
                     <Link className='clinic-info link' to={`/clinics/${clinic.CLINIC_ID}`}>
                         <div className="clinic-info-avt">
-                            <img src={avt} alt="avt" />
+                            <img src={clinic.CLINIC_AVT ? PF + clinic.CLINIC_AVT : nk} alt="avt" />
                         </div>
                         <div className="clinic-info-detail">
                             <div className='clinic-info-name'>

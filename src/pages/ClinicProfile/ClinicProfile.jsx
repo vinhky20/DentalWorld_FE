@@ -3,17 +3,24 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 import './ClinicProfile.css';
-import avt1 from '../../static/pictures/avt1.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import Review from '../../components/Review/Review';
 import { Context } from '../../context/Context';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ClinicAvt from '../../components/ClinicAvt/ClinicAvt';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 function ClinicProfile(props) {
     const { user } = useContext(Context);
     const [reviews, setReviews] = useState([]);
+    const [openAvt, setOpenAvt] = useState(false);
+    const PF = "http://localhost:5000/public/images/";
+
+    const handleHideAvt = () => {
+        setOpenAvt(false)
+    }
 
     useEffect(() => {
         const getReviews = async () => {
@@ -25,9 +32,10 @@ function ClinicProfile(props) {
 
     return (
         <React.Fragment>
+            {openAvt && <ClinicAvt handleHideAvt={handleHideAvt} />}
             <Header />
             <div className='cliProfile'>
-                <img src={avt1} alt="" />
+                <img src={PF + user[0].CLINIC_AVT} alt="" onClick={() => setOpenAvt(true)} />
                 <div className="cliProfileContainer">
                     <Link className='link' to="/updateCliProfile">
                         <FontAwesomeIcon className='cliProfileEditIcon' icon={faPenToSquare} />

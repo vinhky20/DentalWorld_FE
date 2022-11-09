@@ -7,11 +7,13 @@ import Login from '../Login/Login';
 import Clinic from '../../components/Clinic/Clinic';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
+import Loading from '../../components/Loading/Loading';
 
 function Search(props) {
     const location = useLocation();
     const keyword = location.pathname.split("/")[2];
     const [clinics, setClinics] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const [open, setOpen] = useState(false);
 
@@ -24,16 +26,19 @@ function Search(props) {
     }
 
     useEffect(() => {
+        setIsLoading(true);
         const getClinicsSearch = async () => {
             const res = await axios.get("/clinics/search/" + keyword);
             setClinics(res.data);
         };
         getClinicsSearch();
+        setIsLoading(false)
     }, []);
 
 
     return (
         <React.Fragment>
+            {isLoading && <Loading />}
             {open && <Login handleHideLogin={handleHideLogin} />}
             <div>
                 <Header handleShowLogin={handleShowLogin} />

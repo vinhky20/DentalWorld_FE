@@ -1,29 +1,29 @@
-.success {
+.customerAvt {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
-    z-index: 9999;
+    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-.success-container {
+.customerAvtContainer {
+    width: 25%;
     background-color: white;
     position: relative;
-    padding: 24px 72px 24px 72px;
+    padding: 24px 36px 36px 36px;
     border-radius: 24px;
     display: flex;
     align-items: center;
     flex-direction: column;
-
 }
 
-.exit-icon {
+.customer-off-icon {
     position: absolute;
     right: 0;
     top: 0;
@@ -32,23 +32,27 @@
     color: red;
 }
 
-.success-icon {
+.customerImg {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    object-fit: cover;
     margin: 24px 0 24px 0;
-    font-size: 120px;
-    color: #4ECB71;
 }
 
-.success-title {
-    font-weight: 600;
-}
-
-.exit-btn {
-    margin: 24px 0 24px 0;
-    height: 32px;
-    width: 100px;
-    border: none;
-    color: white;
-    background-color: #005CDF;
+.chooseFile {
+    padding: 2px 8px;
+    background-color: #FFA800;
     border-radius: 4px;
-    font-weight: bold;
+    color: white;
+    margin-bottom: 24px;
+}
+
+.customerUpdateBtn {
+    background-color: #003580;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 20px;
+    border: none;
+
 }

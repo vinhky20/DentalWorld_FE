@@ -13,7 +13,6 @@ function Login({ handleHideLogin }) {
     const passwordRef = useRef();
     const [loginRole, setLoginRole] = useState('customer');
 
-    const [isLoading, setIsLoading] = useState(false)
     const [isError, setIsError] = useState(false)
 
     const handleHide = () => {
@@ -28,7 +27,6 @@ function Login({ handleHideLogin }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsLoading(true);
         dispatch({ type: "LOGIN_START" });
         try {
             if (loginRole === 'customer') {
@@ -51,7 +49,6 @@ function Login({ handleHideLogin }) {
             setIsError(true);
             dispatch({ type: "LOGIN_FAILURE" });
         }
-        setIsLoading(true);
     };
 
     return (
