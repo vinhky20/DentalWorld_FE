@@ -96,9 +96,7 @@ function ClinicDetail(props) {
                     </div>
                     <div className="clinicReview">
                         <p>Phản hồi của khách hàng</p>
-                        {(user && user[0].C_ROLE == 'customer') && (
-                            <AddReview clinic={clinic.CLINIC_ID} handleSuccessReview={handleSuccessReview} />
-                        )}
+                        <AddReview clinic={clinic.CLINIC_ID} handleSuccessReview={handleSuccessReview} />
                         {reviews?.map((review) => (
                             <Review review={review} key={review.REVIEW_ID} />
                         ))}

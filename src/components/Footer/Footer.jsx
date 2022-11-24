@@ -6,8 +6,8 @@ function Footer(props) {
         <div className='footer'>
             <footer class="footer-distributed">
                 <div className="footer-email">
-                    <h2>Hãy đóng góp ý kiến về Website cho chúng tôi !</h2>
-                    <p>Để giúp xây dựng một thế giới nha khoa như mong muốn.</p>
+                    <h2>Hãy đóng góp ý kiến về Website và Chatbot cho chúng tôi !</h2>
+                    <p>Để giúp xây dựng một Thế Giới Nha Khoa như mong muốn.</p>
                     <div className='footer-input'>
                         <textarea name="" id="" cols="30" rows="5"></textarea>
                         <button>Gửi phản hồi</button>
@@ -15,32 +15,32 @@ function Footer(props) {
                 </div>
                 <div className='footer-grid'>
                     <div className='footer-grid-item'>
-                        <h5>Our solution</h5>
-                        Intergrated Security Program <br></br>
-                        Core Features<br></br>
-                        Product Features <br></br>
-                        Pricing
+                        <h5>Luận văn tốt nghiệp</h5>
+                        Sinh viên: Nguyễn Lê Vĩnh Kỳ <br></br>
+                        Khoá: 44<br></br>
+                        Mã số sinh viên: B1812832<br></br>
+                        Nghành học: Công Nghệ Thông Tin (clc)
                     </div>
                     <div className='footer-grid-item'>
-                        <h5>Our solution</h5>
-                        Intergrated Security Program <br></br>
-                        Core Features<br></br>
-                        Product Features <br></br>
-                        Pricing
+                        <h5>Luận văn tốt nghiệp</h5>
+                        Sinh viên: Nguyễn Lê Vĩnh Kỳ <br></br>
+                        Khoá: 44<br></br>
+                        Mã số sinh viên: B1812832<br></br>
+                        Nghành học: Công Nghệ Thông Tin (clc)
                     </div>
                     <div className='footer-grid-item'>
-                        <h5>Our solution</h5>
-                        Intergrated Security Program <br></br>
-                        Core Features<br></br>
-                        Product Features <br></br>
-                        Pricing
+                        <h5>Luận văn tốt nghiệp</h5>
+                        Sinh viên: Nguyễn Lê Vĩnh Kỳ <br></br>
+                        Khoá: 44<br></br>
+                        Mã số sinh viên: B1812832<br></br>
+                        Nghành học: Công Nghệ Thông Tin (clc)
                     </div>
                     <div className='footer-grid-item'>
-                        <h5>Our solution</h5>
-                        Intergrated Security Program <br></br>
-                        Core Features<br></br>
-                        Product Features <br></br>
-                        Pricing
+                        <h5>Luận văn tốt nghiệp</h5>
+                        Sinh viên: Nguyễn Lê Vĩnh Kỳ <br></br>
+                        Khoá: 44<br></br>
+                        Mã số sinh viên: B1812832<br></br>
+                        Nghành học: Công Nghệ Thông Tin (clc)
                     </div>
                 </div>
             </footer>

@@ -51,7 +51,7 @@ function Booking({ clinic, user, handleHideBooking }) {
     const handleChangeDate = async (value) => {
         setDate(value);
         try {
-            const res = await axios.get("/clinicSchedule/bookedTimeSlot/" + clinic.CLINIC_ID + "/" + value);
+            const res = await axios.get("/bookings/bookedTimeSlot/" + clinic.CLINIC_ID + "/" + value);
             setBookedTimeSlots(res.data);
         } catch (err) {
             console.log(err)
