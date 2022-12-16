@@ -29,8 +29,8 @@ function Service(props) {
                         <div className="serviceInfo">
                             <h3>{service.SERVICE_NAME}</h3>
                             <p className='serviceDesc'>{service.SERVICE_DESCRIPTION}</p>
-                            <p className='serviceTime'>{service.SERVICE_TIMETODO}</p>
-                            <p className='servicePrice'>{service.SERVICE_PRICE}</p>
+                            <p className='serviceTime'>Thời gian thực hiện: {service.SERVICE_TIMETODO}</p>
+                            <p className='servicePrice'>Giá tham khảo: {service.SERVICE_PRICE}</p>
                         </div>
                     ))}
                 </div>

@@ -21,26 +21,17 @@ function BookingInfo(props) {
         getBookingInfo();
     }, [])
 
-    const handleUpdateStatus = async (e) => {
-        e.preventDefault();
-        var bookingId = document.getElementById("bookingId");
-        var bookingStatus = document.etElementById("bookingStatus");
-        var updateStatus;
-
-        if (bookingStatus == 0) {
-            updateStatus = 1;
-        } else if (bookingStatus == 1) {
-            updateStatus = 0
-        }
+    const handleUpdateStatus = async (id) => {
 
         try {
-            // await axios.put("/bookings/" + bookingId, {
-            //     BOOKING_STATUS: updateStatus
-            // });
-            console.log("ĐÂY NÈ VĨNH: ", bookingId, updateStatus)
+            await axios.put("/bookings/" + id, {
+                BOOKING_STATUS: 1
+            });
+            window.location.reload();
         } catch (error) {
-
+            console.log(error)
         }
+
     }
 
     return (
@@ -49,8 +40,7 @@ function BookingInfo(props) {
             <div className='bookingInfo'>
                 <table className='bookingInfoTable'>
                     <tr className='tableHead'>
-                        <th className='bookingInfoTable-th'>STT</th>
-                        <th className='bookingInfoTable-th'>Tên khách hàng</th>
+                        <th className='bookingInfoTable-th'>Tên khách hàng/Mã khách hàng</th>
                         <th className='bookingInfoTable-th'>Điện thoại</th>
                         <th className='bookingInfoTable-th'>Ngày đặt</th>
                         <th className='bookingInfoTable-th'>Khung giờ</th>
@@ -60,22 +50,16 @@ function BookingInfo(props) {
                     </tr>
                     {bookingInfo?.map((b) => (
                         <tr>
-                            <td className='bookingInfoTable-td'>{b.BOOKING_ID}</td>
-                            <td className='bookingInfoTable-td'>{b.BOOKING_CUSTOMER_NAME || b.CUSTOMER_NAME}</td>
+                            <td className='bookingInfoTable-td'>{b.BOOKING_CUSTOMER_NAME || "Vĩnh Kỳ"}</td>
                             <td className='bookingInfoTable-td'>{b.BOOKING_CONTACT_PHONE}</td>
                             <td className='bookingInfoTable-td'>{b.BOOKING_DATE}</td>
-                            <td className='bookingInfoTable-td'>{b.TIMESLOT_NAME}</td>
+                            <td className='bookingInfoTable-td'>{b.BOOKING_TIMESLOT}</td>
                             <td className='bookingInfoTable-td'>{b.BOOKING_SERVICE}</td>
                             <td className='bookingInfoTable-td'>{b.BOOKING_STATUS == 0 ? "Chưa khám" : "Đã khám"}</td>
-                            <td className='bookingInfoTable-td'>{
-                                updateStatus ? (
-                                    <form className="updateStatus" onSubmit={handleUpdateStatus}>
-                                        <input type="text" id='bookingId' value={b.BOOKING_ID} hidden />
-                                        <input type="text" id='bookingStatus' value={b.BOOKING_STATUS} hidden />
-                                        <button className='updateStatus-btn' type='submit'>{b.BOOKING_STATUS == 0 ? "Đã khám" : "Chưa khám"}</button>
-                                    </form>
-                                ) : <FontAwesomeIcon onClick={() => setUpdateStatus(true)} className='iconUpdate' icon={faPenToSquare}></FontAwesomeIcon>
-                            }
+                            <td className='bookingInfoTable-td'>
+                                <button className='btnUpdate' onClick={() => handleUpdateStatus(b.BOOKING_ID)}>
+                                    <FontAwesomeIcon className='iconUpdate' icon={faPenToSquare}></FontAwesomeIcon>
+                                </button>
                             </td>
                         </tr>
                     ))}

@@ -17,13 +17,14 @@ function History(props) {
         getHistory();
     }, [])
 
+
     return (
         <React.Fragment>
             <Header />
             <div className='history'>
                 <table className='historyTable'>
                     <tr className='tableHead'>
-                        <th>Nha khoa</th>
+                        <th>Mã Nha Khoa</th>
                         <th>Điện thoại liên hệ</th>
                         <th>Ngày đặt</th>
                         <th>Khung giờ</th>
@@ -33,7 +34,7 @@ function History(props) {
                     </tr>
                     {history?.map((b) => (
                         <tr>
-                            <td>{b.CLINIC_NAME}</td>
+                            <td>{b.BOOKING_CLINIC}</td>
                             <td>{b.BOOKING_CONTACT_PHONE}</td>
                             <td>{b.BOOKING_DATE}</td>
                             <td>{b.TIMESLOT_NAME}</td>

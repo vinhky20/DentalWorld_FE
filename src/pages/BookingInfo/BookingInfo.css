@@ -71,3 +71,8 @@ td:last-child {
     border-radius: 2px;
     height: 24px;
 }
+
+.btnUpdate {
+    border: none;
+    background-color: white;
+}

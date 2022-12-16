@@ -10,7 +10,7 @@ import './Booking.css';
 function Booking({ clinic, user, handleHideBooking }) {
     const [openBookingStatus, setOpenBookingStatus] = useState(false);
     const [bookedTimeSlots, setBookedTimeSlots] = useState([]);
-    const [date, setDate] = useState("");
+    const [dateBook, setDateBook] = useState("");
     const [timeSlot, setTimeSlot] = useState("");
     const [customer, setCustomer] = useState("");
     const [phone, setPhone] = useState("");
@@ -49,16 +49,17 @@ function Booking({ clinic, user, handleHideBooking }) {
     // console.log("DANH SÁCH CÁC KHUNG GIỜ ĐÃ ĐƯỢC ĐẶT: ", bookedTimeSlots[0].booking_timeslot)
 
     const handleChangeDate = async (value) => {
-        setDate(value);
+
         try {
             const res = await axios.get("/bookings/bookedTimeSlot/" + clinic.CLINIC_ID + "/" + value);
             setBookedTimeSlots(res.data);
+            setDateBook(value);
         } catch (err) {
             console.log(err)
             setIsError(true);
         }
 
-        // console.log("CLINIC", clinic.CLINIC_ID + " VÀ DATE: " + date)
+        console.log("CLINIC", clinic.CLINIC_ID + " VÀ DATE: " + dateBook)
     }
 
     const handleHideError = () => {
@@ -137,7 +138,7 @@ function Booking({ clinic, user, handleHideBooking }) {
                 BOOKING_NOTE: note,
                 BOOKING_CONTACT_PHONE: phone,
                 BOOKING_TIMESLOT: bookedTimeSlot,
-                BOOKING_DATE: date,
+                BOOKING_DATE: dateBook,
                 BOOKING_SERVICE: result,
                 BOOKING_CUSTOMER: user[0].CUSTOMER_ID,
                 BOOKING_STATUS: 0,
@@ -145,7 +146,7 @@ function Booking({ clinic, user, handleHideBooking }) {
                 BOOKING_EMAIL: user[0].CUSTOMER_EMAIL
             });
             const res2 = await axios.post("/bookings/sendMail", {
-                BOOKING_DATE: date,
+                BOOKING_DATE: dateBook,
                 BOOKING_NOTE: note,
                 BOOKING_EMAIL: user[0].CUSTOMER_EMAIL,
                 BOOKING_CUSTOMER_NAME: user[0].CUSTOMER_NAME,
@@ -170,7 +171,7 @@ function Booking({ clinic, user, handleHideBooking }) {
         <React.Fragment>
             {isLoading && <Loading />}
             {isError && <Error handleHideError={handleHideError} title={"Có thể bạn đã bỏ trống thông tin cần thiết hoặc chọn nhầm khung giờ đã được đặt trước, vui lòng nhập lại nhé!"} />}
-            {openBookingStatus && <BookingSuccess clinic={clinic} date={date} timeSlot={timeSlot} phone={phone} note={note} customer={user[0].CUSTOMER_NAME} title={"Đặt lịch khám thành công"} handleHideBookingSuccess={handleHideBookingSuccess} />}
+            {openBookingStatus && <BookingSuccess clinic={clinic} date={dateBook} timeSlot={timeSlot} phone={phone} note={note} customer={user[0].CUSTOMER_NAME} title={"Đặt lịch khám thành công"} handleHideBookingSuccess={handleHideBookingSuccess} />}
             <div className='booking'>
                 <div className="booking-container">
                     <FontAwesomeIcon className='booking-off-icon' icon={faXmark} onClick={handleHide} />
